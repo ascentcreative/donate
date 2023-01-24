@@ -28,6 +28,7 @@ class DonateServiceProvider extends ServiceProvider
     $this->loadRoutesFrom(__DIR__.'/../routes/donate-web.php');
 
     $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+    $this->loadMigrationsFrom(__DIR__.'/../database/settings');
 
     $this->bootComponents();
 
