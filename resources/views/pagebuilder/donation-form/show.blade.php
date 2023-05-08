@@ -1,5 +1,7 @@
 @php
     $giftaid = app(AscentCreative\Donate\Settings\DonateSettings::class)->enable_giftaid;    
+
+    echo \Carbon\Carbon::now()->timestamp;
 @endphp
 
 <form id="frm_donate">
@@ -7,13 +9,13 @@
     @csrf
 
     <div class="form-inline">
-    I would like to donate &pound;<x-forms-fields-input type="text" name="amount" label="" value="" wrapper="none" /> 
-    as a <x-forms-fields-options type="select" name="recur" value="S" :options="['S'=>'One-off', 'M'=>'Monthly']" label="" wrapper="none"/> amount.
+    I would like to donate &pound;<x-forms-fields-input type="text" name="amount" label="" value="10" wrapper="none" /> 
+    as a <x-forms-fields-options type="select" name="recur" value="M" :options="['S'=>'One-off', 'M'=>'Monthly']" label="" wrapper="none"/> amount.
     </div>
 
-    <x-forms-fields-input type="text" name="name" label="Name:" value="" wrapper="simple" />
+    <x-forms-fields-input type="text" name="name" label="Name:" value="k" wrapper="simple" />
 
-    <x-forms-fields-input type="text" name="email" label="Email:" value="" wrapper="simple" />
+    <x-forms-fields-input type="text" name="email" label="Email:" value="kiers@medders.org.uk" wrapper="simple" />
 
     @if($giftaid)
     <div class="border p-2 mt-3">
@@ -24,7 +26,7 @@
     </div>
     @endif
 
-    <x-transact-stripe-ui buttonText="Donate Now" 
+    <x-transact-stripe-elements buttonText="Donate Now" 
         cssSrc="https://fonts.googleapis.com/css?family=Figtree"
         :style="[
             'base' => [
