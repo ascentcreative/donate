@@ -9,6 +9,8 @@ class DonateSettings extends Settings
  
     public ?int $enable_giftaid;
 
+    public ?string $stripe_product_id;
+
    
     public static function group(): string
     {

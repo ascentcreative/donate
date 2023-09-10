@@ -34,6 +34,10 @@ class DonateServiceProvider extends ServiceProvider
 
     $this->bootPublishes();
 
+    if(app()->runningInConsole()) {
+        $this->bootCommands();
+    }
+
     
   }
 
@@ -64,5 +68,10 @@ class DonateServiceProvider extends ServiceProvider
     }
 
 
+    public function bootCommands() {
+        $this->commands([
+            \AscentCreative\Donate\Commands\Setup::class,
+        ]);
+    }
 
 }

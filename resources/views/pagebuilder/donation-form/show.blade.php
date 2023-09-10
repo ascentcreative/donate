@@ -1,7 +1,5 @@
 @php
     $giftaid = app(AscentCreative\Donate\Settings\DonateSettings::class)->enable_giftaid;    
-
-    echo \Carbon\Carbon::now()->timestamp;
 @endphp
 
 <form id="frm_donate">
@@ -26,11 +24,11 @@
     </div>
     @endif
 
-    <x-transact-stripe-elements buttonText="Donate Now" 
+    <x-transact-stripe-ui buttonText="Donate Now" 
         cssSrc="https://fonts.googleapis.com/css?family=Figtree"
         :style="[
             'base' => [
-                'fontFamily' => 'Figtree, sans-serif'
+                //'fontFamily' => 'Figtree, sans-serif'
             ]    
         ]" />
 

@@ -63,6 +63,38 @@ class DonationProfile extends Model implements iSubscribable, iTransactable
 
     }
 
+
+    // rather than anything specific to this model, 
+    // we'll get the product ID as stored in the settings
+    public function getStripeProductId():string {
+        return app(\AscentCreative\Donate\Settings\DonateSettings::class)->stripe_product_id;   
+    }
+
+
+    public function getSubscriptionItems():array {
+
+        // return [
+        //     'price' => 'price_1N9U3GHZw0ztnS0JIwYvPwSQ',
+        // ];
+
+        return [
+            'price_data' => [
+                'product' => $this->getStripeProductId(),
+                    'currency'=>'GBP',
+                    'recurring'=>[
+                        'interval'=>$this->getInterval(),
+                        'interval_count'=>$this->getIntervalCount()
+                    ],
+                    'unit_amount'=>$this->getSubscriptionAmount() * 100
+            ]
+        ];
+
+    }
+
+    public function getIterations():int {
+        return 0;
+    }
+
     public function getInterval():string {
         switch ($this->recur) {
             case 'M':
