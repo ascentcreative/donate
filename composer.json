@@ -10,7 +10,7 @@
   ],
   "require": {
     "laravel/fortify": "^1.7",
-    "ascentcreative/transact": "dev-dev",
+    "ascentcreative/transact": "dev-v2rc",
     "matthiasmullie/minify": "^1.3",
     "kalnoy/nestedset": "^6.0",
     "doctrine/dbal": "^3.0",

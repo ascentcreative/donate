@@ -98,7 +98,9 @@
 
                                 }
 
-                                // need to display these errors:
+                                reject('');
+
+                                                                // need to display these errors:
                             break;
 
                             default:
@@ -112,9 +114,9 @@
 
             });
 
-            $('#stripe-ui').stripeui('setFailFunction', function(error) {
-                //alert('custom fail');
-            }); 
+            // $('#stripe-ui').stripeui('setFailFunction', function(error) {
+            //     // alert('custom fail');
+            // }); 
 
         });
 
